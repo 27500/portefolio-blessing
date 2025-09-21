@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio – Nom Prénom</title>
+
+  <!-- Police Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+   <style>
+    :root{
+      --bg: #0f1113; --brand:#19e0c2; --brand-2:#12b39a;
+      --card:#f1f4f8; --shadow:0 10px 25px rgba(0,0,0,.08); --radius:14px;
+    }
+    *{box-sizing:border-box}body{margin:0;font-family:Poppins,sans-serif;color:#1a1f24;background:#fff;line-height:1.6}
+    img{max-width:100%;display:block}
+    .container{width:min(1100px,92%);margin:auto}.section{padding:80px 0}
+    .section-title{font-size:28px;margin:0 0 24px}.section-title.center{text-align:center}
+    .header{position:sticky;top:0;z-index:20;background:#0b0d0f}
+    .brand{color:#fff;text-decoration:none;font-weight:700}.brand span{color:var(--brand)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .menu{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+    .menu a{color:#c7d0da;text-decoration:none;font-size:14px;padding:8px 0;position:relative}
+    .menu a.active,.menu a:hover{color:#fff}
+    .menu a.active::after,.menu a:hover::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:2px;background:var(--brand)}
+    .burger{display:none;background:none;border:0;cursor:pointer}
+    .burger span{display:block;width:24px;height:2px;background:#e6eef7;margin:5px 0}
+    .btn{display:inline-block;background:var(--brand);color:#062a23;font-weight:600;padding:12px 22px;border-radius:12px;text-decoration:none;cursor:pointer;transition:.2s;box-shadow:0 6px 16px rgba(25,224,194,.35)}
+    .btn:hover{transform:translateY(-2px);background:var(--brand-2)}.btn.small{padding:9px 16px;font-size:14px}
+    .btn-ghost{background:#e9fdf9;color:#0d3a33;box-shadow:none}
+    .hero{padding-top:120px}.hero-grid{display:grid;gap:40px;align-items:center;grid-template-columns:1.15fr .85fr}
+    .hero h1{font-size:32px;font-weight:600;margin:0 0 20px}.accent{color:var(--brand)}
+    .hero-illu img{width:min(480px,100%)}.about{background:#f6f8fb}
+    .about-grid{display:grid;gap:36px;grid-template-columns:1.1fr .9fr;align-items:center}
+    .about-photo img{width:260px;height:260px;object-fit:cover;border-radius:50%;border:6px solid #eaf2f7;outline:4px solid var(--brand);margin:auto;box-shadow: 10px 10px 10px;}
+    .cards{margin-top:22px;display:grid;gap:22px;grid-template-columns:repeat(3,1fr)}
+    .card{background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+    .card h3{margin:0;font-size:18px}.card p{margin:0;color:#5b6875}.tags{font-size:13px;color:#6c7a88;margin-bottom:8px}
+    .skills{background:#f6f8fb}.skills-grid{display:grid;gap:24px;grid-template-columns:repeat(2,1fr)}
+    .skill-box{background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .skill-box h3{margin:0 0 14px}.bar{background:#eef3f7;border-radius:10px;height:36px;margin:14px 0;position:relative;overflow:hidden;padding:0 10px;display:flex;align-items:center}
+    .bar span{position:relative;z-index:1;font-size:13px}.contact{background:#0b0d0f;color:#e9f2fb}
+    .contact-title{margin:0 0 24px;text-align:center;font-size:26px}
+    .form{background:#0f1419;border:1px solid #182028;border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+    .form-row{display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}.field{display:flex;flex-direction:column;gap:8px}
+    label{font-size:13px;color:#b9c6d3}input,textarea{background:#0b0f13;color:#dfe8f1;border:1px solid #1c2630;border-radius:10px;padding:12px;outline:none}
+    input:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(25,224,194,.12)}
+    .error{min-height:16px;font-size:12px;color:#ff8e8e}.form-ok{margin-top:10px;color:#87f5d7}
+    .footer{padding:26px 0;background:#0b0d0f;color:#aab6c2}.foot-grid{display:flex;justify-content:space-between}
+    .footer a{color:var(--brand);text-decoration:none}
+    @media(max-width:980px){.hero-grid,.about-grid{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.skills-grid{grid-template-columns:1fr}}
+    @media(max-width:640px){.menu{display:none}.burger{display:block}.cards{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.foot-grid{flex-direction:column;gap:10px}}
+    .menu.open{display:flex;position:absolute;inset:64px 0 auto 0;background:#0b0d0f;flex-direction:column;gap:14px;padding:16px}
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="#top">Mingenge<span>+</span> BLESSING </a>
+    <nav>
+      <ul class="menu">
+        <li><a class="nav-link active" href="#accueil">Accueil</a></li>
+        <li><a class="nav-link" href="#apropos">À propos</a></li>
+        <li><a class="nav-link" href="#projets">Projets</a></li>
+        <li><a class="nav-link" href="#competences">Compétences</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="burger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="section hero" id="accueil">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Je suis <span class="accent">BLESSING </span>, Développeur en web passionné par le web et la technologie !</h1>
+        <a class="btn" href="#projets">Voir mes projets</a>
+      </div>
+      <div class="hero-illu">
+        <img src="c:\Users\HP\Pictures\2025_09_07_03_43_IMG_6708.JPG" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="apropos">
+    <div class="container about-grid">
+      <div class="about-text">
+        <h2 class="section-title">À propos</h2>
+        <p>Je m'appelle <strong>Mingenge </strong>, passionné par la création de sites web modernes et interactifs.</p>
+        <p>Je suis étudiant congolais,  je me develloppe en <strong>développement web</strong>, et j'améliore mes compétences en JavaScript, HTML et CSS.</p>
+        <a href="c:\Users\HP\Documents\Curriculum vitea blessing.pdf" class="btn btn-ghost">Télécharger mon CV</a>
+      </div>
+      <div class="about-photo">
+        <img src="c:\Users\HP\Pictures\2025_05_05_20_57_IMG_5378.PNG" alt="ma photo de profil">
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+ <section class="projects" id="projets">
+    <div class="container">
+      <h2 class="center">Mes Projets</h2>
+      <div class="cards">
+
+        <!-- Jeu 1 -->
+        <div class="card">
+          <h3>Jeu du clic rapide</h3>
+          <p>Teste ta vitesse de clic !</p>
+          <button class="btn small" id="clickBtn">Clique-moi !</button>
+          <p>Score : <span id="clickScore">0</span></p>
+        </div>
+
+        <!-- Jeu 2 -->
+        <div class="card">
+          <h3>Jeu du nombre secret</h3>
+          <p>Devine un nombre entre 1 et 20.</p>
+          <input type="number" id="guessInput" min="1" max="20">
+          <button class="btn small" id="guessBtn">Deviner</button>
+          <p id="guessResult"></p>
+        </div>
+        <!-- Jeu 3 -->
+        <div class="card">
+          <h3>Pierre–Feuille–Ciseaux</h3>
+          <div>
+            <button class="btn small" data-choice="pierre">✊</button>
+            <button class="btn small" data-choice="feuille">✋</button>
+            <button class="btn small" data-choice="ciseaux">✌️</button>
+          </div>
+          <p>Résultat : <span id="pfcResult">—</span></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SKILLS -->
+  <section class="section skills" id="competences">
+    <div class="container">
+      <h2 class="section-title center">Mes Compétences</h2>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <h3>Soft Skills</h3>
+          <div class="bar"><span data-value="85">Création de projet</span></div>
+          <div class="bar"><span data-value="70">Résolution de problème</span></div>
+          <div class="bar"><span data-value="90">Adaptabilité</span></div>
+        </div>
+        <div class="skill-box">
+          <h3>Hard Skills</h3>
+          <div class="bar"><span data-value="80">HTML</span></div>
+          <div class="bar"><span data-value="75">CSS</span></div>
+          <div class="bar"><span data-value="65">JavaScript</span></div>
+          <div class="bar"><span data-value="85">VS Code</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="contact-title">Vous avez un <span class="accent strong">projet en tête ?</span><br>N’hésitez pas à me <span class="accent">contacter</span></h2>
+      <form class="form" id="contactForm">
+        <div class="form-row">
+          <div class="field"><label>Votre prénom</label><input required><small class="error"></small></div>
+          <div class="field"><label>Votre email</label><input type="email" required><small class="error"></small></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Objet</label><input required><small class="error"></small></div>
+          <div class="field"><label>Téléphone</label><input><small class="error"></small></div>
+        </div>
+        <div class="field"><label>Message</label><textarea required></textarea><small class="error"></small></div>
+        <button class="btn">Envoyer</button>
+        <p class="form-ok" hidden>✅ Merci ! Votre message a été envoyé.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container foot-grid">
+    <p>site web creé par <a href="#">blessing mingenge </a> avec HTML, CSS & JS</p>
+    <p>Tous droits réservés – <span id="year"></span></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent=new Date().getFullYear();
+  const burger=document.querySelector('.burger'),menu=document.querySelector('.menu');
+  burger.onclick=()=>menu.classList.toggle('open');
+  const bars=document.querySelectorAll('.bar');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const val=e.target.querySelector('span').dataset.value;
+        if(!e.target.querySelector('.fill')){
+          const fill=document.createElement('i');
+          fill.style.cssText="position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,var(--brand),var(--brand-2));transition:width .9s";
+          e.target.append(fill);
+          requestAnimationFrame(()=>fill.style.width=val+"%");
+        }
+        obs.unobserve(e.target);
+      }
+    })
+  },{threshold:.3});
+  bars.forEach(b=>obs.observe(b));
+  const form=document.getElementById('contactForm');
+  form.onsubmit=e=>{
+    e.preventDefault();
+    let ok=true;
+    form.querySelectorAll('[required]').forEach(inp=>{
+      const err=inp.parentElement.querySelector('.error');
+      if(!inp.value.trim()){ok=false;err.textContent="Bien reussie"}else err.textContent="";
+    });
+    if(ok){form.reset();const m=form.querySelector('.form-ok');m.hidden=false;setTimeout(()=>m.hidden=true,4000);}
+  }
+  // === Jeu 1 : Clic rapide ===
+    let score=0;
+    const clickBtn=document.getElementById("clickBtn");
+    const clickScore=document.getElementById("clickScore");
+    if(clickBtn){clickBtn.addEventListener("click",()=>{score++;clickScore.textContent=score;});}
+
+    // === Jeu 2 : Nombre secret ===
+    let secret=Math.floor(Math.random()*20)+1;
+    const guessBtn=document.getElementById("guessBtn");
+    if(guessBtn){
+      guessBtn.addEventListener("click",()=>{
+        const val=parseInt(document.getElementById("guessInput").value);
+        const res=document.getElementById("guessResult");
+        if(isNaN(val)){res.textContent="❌ Entre un nombre !";return;}
+        if(val===secret){res.textContent="✅ Bravo ! Le nombre sécret de blessing était "+secret;secret=Math.floor(Math.random()*20)+1;}
+        else if(val<secret) res.textContent="⬆️ Trop petit !";
+        else res.textContent="⬇️ Trop grand !je suis trop fort en ce jeu ";
+      });
+    }
+
+    // === Jeu 3 : Pierre–Feuille–Ciseaux ===
+    const choix=["pierre","feuille","ciseaux"];
+    const boutons=document.querySelectorAll("[data-choice]");
+    const pfcResult=document.getElementById("pfcResult");
+    if(boutons){
+      boutons.forEach(b=>{
+        b.addEventListener("click",()=>{
+          const joueur=b.dataset.choice;
+          const ordi=choix[Math.floor(Math.random()*3)];
+          let res="";
+          if(joueur===ordi) res="Égalité 🤝 ("+ordi+")";
+          else if((joueur==="pierre"&&ordi==="ciseaux")||(joueur==="feuille"&&ordi==="pierre")||(joueur==="ciseaux"&&ordi==="feuille")) res="🎉 Gagné !  ("+ordi+")";
+          else res="😢 Perdu ! blessing t'as gagné ("+ordi+")";
+          pfcResult.textContent=res;
+        });
+      });
+    }
+</script>
+</body>
+</html>
